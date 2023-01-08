@@ -1,0 +1,64 @@
+#include <bits/stdc++.h>
+using namespace std;
+class Stack{
+     public:
+int size;
+int *arr;
+int top;
+Stack(int size){
+     this->size=size;
+     arr=new int [size];
+     top=-1;
+
+}
+
+ bool is_empty()  {
+if(top==-1){
+return 1;
+}
+else {return 0;}
+   }
+   bool is_full()  {
+if(top==size-1){return 1;}
+else{ return 0;}
+   }
+void push(int data){
+if(size - top>1){
+     top++;
+     arr[top]=data;
+}
+else {
+     cout<<"stack overflow "<<endl;
+}
+   }
+   void pop(){
+if(top>=0){
+     top--;
+}
+else {
+     cout<<"stack underflow"<<endl;
+}
+   }
+   int peek(){
+if(top>=0){
+     return arr[top];
+}
+   }
+};
+int main (){
+Stack st(5);
+st.push(1);
+st.push(11);
+st.push(111);
+st.push(111);
+st.push(111);
+cout<<st.is_empty()<<endl;
+cout<<st.is_full()<<endl;
+st.pop();
+st.pop();
+st.pop();
+cout<<st.peek()<<endl;
+cout<<st.is_empty()<<endl;
+cout<<st.is_full()<<endl;
+return 0;
+}
